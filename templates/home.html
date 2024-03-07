@@ -5,41 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <!--<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">--->
+   <link rel="stylesheet" href="/static/home.css">
     <title>Home</title>
-    <style>
-        body {
-            padding-top: 56px;
-        }
-        .navbar-brand {
-            font-size: 1.8em;
-        }
-        .nav-link {
-            font-size: 1.1em;
-        }
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,.04);
-        }
-        .profile-dropdown-toggle {
-            position: relative;
-            padding-left: 50px;
-        }
-        .profile-dropdown-toggle::before {
-            content: '';
-            position: absolute;
-            top: 10px; left: 15px;
-            width: 30px; height: 30px;
-            background-image: url('path_to_your_profile_icon'); /* Put the path of your profile icon */
-            background-size: cover;
-            border-radius: 50%;
-        }
-        .feature-icon {
-            margin-right: 5px;
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">GenAI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,14 +51,152 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <h1>Welcome to the home page, {{ username }}!</h1>
-            </div>
+    <!------------------- Page Content--------------- -->
+                        <!----- <div class="container">
+                                <div class="row justify-content-center mt-5">
+                                    <div class="col-md-6">
+                                        <h1>Welcome to the home page, {{ username }}!</h1>
+                                    </div>
+                                </div>
+                            </div>------>
+
+
+    <div class="container text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <main role="main" class="inner cover">
+                <h1 class="cover-heading">Welcome to GenAI</h1>
+                <p class="lead">Your gateway to the future of generative artificial intelligence, where creativity meets technology. Explore the boundless possibilities of AI in generating content, art, and solutions.</p>
+                <!---<p class="lead">
+                    <a href="#" class="btn btn-lg btn-secondary">Learn More</a>
+                </p>---->
+            </main>
         </div>
     </div>
+
+       <!-------------card1-------------------->
+       <div class="card-main-content">
+        <div class="card-cotainer-1 card-container-11">
+
+           
+            <div class="card-1">
+                <div class="card-image-1">
+                    <img style="height: 240px;"  src="../static/BGimage/legal_assistance.png" alt="">
+                </div>
+                <div class="card-image-content">
+                    <h4>Legal Assistance</h4>
+                    <p class="lead-card-btn">
+                        <a href="#" class="btn btn-lg btn-secondary" id="card-1-btn-1" >Learn More</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="card-content">
+                <h1>Legal Assistance</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium quis nostrum ipsum obcaecati ut corporis quod. Doloribus atque porro, esse nam quidem laudantium provident delectus quibusdam blanditiis, laborum, commodi placeat.</p>
+               
+            </div>
+        </div>
+
+         <!-------------card2-------------------->
+
+         <div class="card-cotainer-1 ">
+
+           
+            <div class="card-content">
+                <h1>Image Generation</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium quis nostrum ipsum obcaecati ut corporis quod. Doloribus atque porro, esse nam quidem laudantium provident delectus quibusdam blanditiis, laborum, commodi placeat.</p>
+                
+            </div>
+
+            <div class="card-1">
+                <div class="card-image-1">
+                    <img style="height: 240px;" src="../static/BGimage/image_gen.png" alt="">
+                </div>
+                <div class="card-image-content">
+                    <h4>Image Generation</h4>
+                    <p class="lead-card-btn">
+                        <a href="#" class="btn btn-lg btn-secondary " id="card-1-btn-2" >Learn More</a>
+                    </p>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+         <!-------------card3-------------------->
+        <div class="card-cotainer-1 card-container-3">
+
+           
+            <div class="card-1">
+                <div class="card-image-1">
+                    <img  style="height: 240px;" src="../static/BGimage/audio_trans.png" alt="">
+                </div>
+                <div class="card-image-content">
+                    <h4>Audio Transcript</h4>
+                    <p class="lead-card-btn">
+                        <a href="#" class="btn btn-lg btn-secondary" id="card-1-btn-4" >Learn More</a>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="card-content">
+                <h1>Audio Transcript</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium quis nostrum ipsum obcaecati ut corporis quod. Doloribus atque porro, esse nam quidem laudantium provident delectus quibusdam blanditiis, laborum, commodi placeat.</p>
+                
+            </div>
+        </div>
+
+         <!-------------card4-------------------->
+
+         <div class="card-cotainer-1 ">
+
+           
+            <div class="card-content">
+                <h1>AI Voice Over Bytes</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium quis nostrum ipsum obcaecati ut corporis quod. Doloribus atque porro, esse nam quidem laudantium provident delectus quibusdam blanditiis, laborum, commodi placeat.</p>
+                
+            </div>
+
+            <div class="card-1">
+                <div class="card-image-1 card-image-11">
+                    <img src="../static/BGimage/landing_page.jpg" alt="">
+                </div>
+                <div class="card-image-content">
+                    <h4>AI Voice Over Bytes</h4>
+                    <p class="lead-card-btn">
+                        <a href="#" class="btn btn-lg btn-secondary" id="card-1-btn-4" >Learn More</a>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+      <!-------popup---------->
+      <div class="popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-circle-xmark "></i>
+            <p class="lead-card-btn-popup">
+               <div class="lead-card-btn-h1">
+                    <h1>Oops!! please SignIN</h1>
+               </div>
+                <a href="{{ url_for('login') }}" class="btn btn-lg btn-secondary">SignIN</a>
+            </p>
+        </div>
+    </div>
+
+
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 GenAI. All Rights Reserved.</span>
+    </div>
+</footer>
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
