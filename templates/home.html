@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Home</title>
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .navbar-brand {
+            font-size: 1.8em;
+        }
+        .nav-link {
+            font-size: 1.1em;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.04);
+        }
+        .profile-dropdown-toggle {
+            position: relative;
+            padding-left: 50px;
+        }
+        .profile-dropdown-toggle::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 15px;
+            width: 30px; height: 30px;
+            background-image: url('path_to_your_profile_icon'); /* Put the path of your profile icon */
+            background-size: cover;
+            border-radius: 50%;
+        }
+        .feature-icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">GenAI</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chatbot">
+                            <i class="fa fa-comments feature-icon"></i>Chatbot
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/image_generation">
+                            <i class="fa fa-paint-brush feature-icon"></i>Image Generation
+                        </a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="/audio_transcript">
+                            <i class="fa-regular fa-microphone"></i>Audio Transcrip
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle profile-dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                            <a class="dropdown-item" href="/profile_view">Profile</a>
+                            <a class="dropdown-item" href="/logout">
+                                <i class="fa fa-sign-out"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h1>Welcome to the home page, {{ username }}!</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
