@@ -64,7 +64,7 @@ body {
 }
 
 #user-input {
-    border-radius: 20px;
+   
     box-shadow: none;
     border-color: #007bff;
 }
@@ -80,7 +80,7 @@ body {
     text-align: center;
     padding: 15px 0;
 }
-=======
+
 body {
     background-color: #f4f7f6;
     font-family: Arial, sans-serif;
@@ -98,7 +98,7 @@ body {
     font-size: 24px;
 }
 .container{
-    height: 74vh;
+    height: 64vh;
 }
 
 #chat-container {
@@ -164,7 +164,6 @@ body {
 #user-input {
    border-top-left-radius: 20px;
    border-bottom-left-radius: 20px;
-
     box-shadow: none;
     border-color: #007bff;
 }
