@@ -20,7 +20,9 @@ def signup():
 @app.route('/home')
 def home_page():
     return render_template('home.html')
-
+@app.route('/chatbot')
+def chat_bot():
+    return render_template('chatbot.html')
 if __name__ == '__main__':
     app.run(debug=True)
 
