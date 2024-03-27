@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Image Generation</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/image_gen_styles.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/image_gen_styles.css') }}">
     <!-- Add custom styles for the reset button and image container -->
     <style>
         .img-container {
@@ -63,7 +64,7 @@
 
 <footer class="footer text-center">
     <div class="container">
-        <span>Developed by Rakesh HR © 2023</span>
+        <span>Developed by GenAI Team © 2024</span>
     </div>
 </footer>
 
