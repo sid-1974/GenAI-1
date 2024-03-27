@@ -21,6 +21,10 @@ def signup():
 def home_page():
     return render_template('home.html')
 
+@app.route('/about_us')
+def aboutus():
+    return render_template('about_us.html')
+
 @app.route('/chatbot')
 def chat_bot():
     return render_template('chatbot.html')
