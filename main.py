@@ -20,9 +20,16 @@ def signup():
 @app.route('/home')
 def home_page():
     return render_template('home.html')
+
 @app.route('/chatbot')
 def chat_bot():
     return render_template('chatbot.html')
+
+@app.route('/image_gen')
+def imagegen():
+    return render_template('image_gen.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

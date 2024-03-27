@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/image_gen_styles.css">
+    <!-- Add custom styles for the reset button and image container -->
+    <style>
+        .img-container {
+            text-align: center; /* Center-align image */
+            margin-top: 20px; /* Add some margin at the top */
+        }
+        .img-container img {
+            max-width: 100%; /* Make sure the image is responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .reset-btn {
+            margin-top: 10px; /* Add some space above the reset button */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/home">GenAI </a>
+		<a class="navbar-brand" > Welcome, {{ username }}! </a>
+    </div>
+</nav>
+
+<div class="container mt-5 pt-5"> <!-- Add margin and padding to top to account for fixed navbar -->
+    <h1 class="mb-3 text-center">Generate Your Image</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="img_description">Image Description:</label>
+            <input type="text" class="form-control" id="img_description" name="img_description" required>
+        </div>
+        <div class="form-group">
+            <label for="image_size">Select Image Size:</label>
+            <select class="form-control" id="image_size" name="image_size">
+                {% for size in image_size_options %}
+                    <option value="{{ size }}">{{ size }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Generate Image</button>
+        <!-- Reset button -->
+        <button type="button" class="btn btn-secondary btn-block reset-btn" onclick="resetPage()">other variant</button>
+    </form>
+
+    <!-- Container for image preview -->
+    <!-- Container for image preview -->
+{% if generated_img_path %}
+    <div class="img-container">
+        <!-- Update the src attribute to use the path directly -->
+        <img src="{{ generated_img_path }}" alt="Generated Image" style="width: 1024px; height: 1024px;"> <!-- Set fixed size for the image -->
+    </div>
+{% endif %}
+
+</div>
+
+<footer class="footer text-center">
+    <div class="container">
+        <span>Developed by Rakesh HR © 2023</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add a script to handle the reset action -->
+<script>
+    function resetPage() {
+        // This will clear the form inputs
+        document.getElementById('img_description').value = '';
+        document.getElementById('image_size').selectedIndex = 0;
+        // Reload the page from the server to clear the cache
+        window.location.reload(true);
+    }
+</script>
+</body>
+</html>
