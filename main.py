@@ -27,7 +27,7 @@ def chat_bot():
 
 @app.route('/image_gen')
 def imagegen():
-    return render_template('image_gen.html')
+    return render_template('image_generation.html')
 
 
 if __name__ == '__main__':
