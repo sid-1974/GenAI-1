@@ -33,6 +33,10 @@ def imagegen():
 def audio_gen():
     return render_template('audio_gen.html')
 
+@app.route('/voice_audio')
+def ai_voice():
+    return render_template('voice_aud.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
