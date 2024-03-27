@@ -29,6 +29,10 @@ def chat_bot():
 def imagegen():
     return render_template('image_generation.html')
 
+@app.route('/audio_trans')
+def audio_gen():
+    return render_template('audio_gen.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
