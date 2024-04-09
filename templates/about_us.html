@@ -8,15 +8,49 @@
     <style>
         body {
             padding-top: 56px;
+            
         }
         .card {
+            
             transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for card */
             cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #fff;
+            /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); */
+            box-shadow: 0 4px 20px rgba(0,0,0,.4);
+            
+            background: linear-gradient(to right, #2980b9, #82ccdd, #8e44ad, #2ecc71);
+             background-size: 500% 100%;
+            animation: gradient 10s linear infinite;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            
         }
         .card:hover {
             transform: translateY(-10px); /* Moves the card up slightly */
-            box-shadow: 0 4px 20px rgba(0,0,0,.25); /* Adds a larger shadow */
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.9);
+            
         }
+        .card-text-hidden{
+            display: none;
+        }
+        .card:hover .card-text {
+            display: none; /* Hide original text */
+        }
+        .card:hover .card-text-hidden {
+            display: block; /* Show new text */
+        }
+        
+        
+        .navbar{
+            position: relative;
+            top: -60px;
+        }
+
         .team-section {
             padding: 50px 0;
         }
@@ -30,6 +64,22 @@
             border-radius: 50%; /* Circular image */
             margin-bottom: 20px;
         }
+        #typing-text::after {
+            content: '|'; /* Add cursor */
+            animation: blink 1s infinite; /* Make the cursor blink */
+        }
+        @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        
         .footer {
             position: fixed;
             left: 0;
@@ -40,10 +90,32 @@
             text-align: center;
             padding: 10px 0;
         }
+        
+
+  
+
+        @keyframes gradient {
+    0% {
+      background-position: 0 50%
+    }
+    25% {
+      background-position: 25% 50%
+    }
+    50% {
+      background-position: 50% 50%
+    }
+    75% {
+      background-position: 75% 50%
+    }
+    100% {
+      background-position: 100% 50%
+    }
+  }
+        
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/home">GenAI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,25 +126,32 @@
     </nav>
 
     <section class="team-section">
+        <h2 id="typing-text"></h2>
         <div class="container">
-            <h2>Our Team</h2>
-            <div class="row">
+            
+            <div class="row "> 
                 <!-- Card for Front-end UI Designer -->
                 <div class="col-md-6">
                     <div class="card">
-                        <img src="./static/logo.png" alt="Front-end Designer" class="profile-image card-img-top">
+                        <img  src="/static/BGimage/logo.png" alt="Front-end Designer" class="profile-image card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Siddartha R</h5>
-                            <p class="card-text">Front-end Developer and  UI Designer</div>
+                            <p class="card-text">Front-end Developer and  UI Designer </p>
+                            <p class="card-text-hidden" >siddarthsiddu@gmail1974.com // 7892322456</p>
+
+                            </div>
                     </div>
                 </div>
                 <!-- Card for Back-end ML Model Designer -->
                 <div class="col-md-6">
                     <div class="card">
-                        <img src="./static/logo.png" alt="Back-end ML Designer" class="profile-image card-img-top">
+                        <img src="/static/BGimage/logo.png" alt="Back-end ML Designer" class="profile-image card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Rakesh H R</h5>
-                            <p class="card-text">Back-end Developer and ML Model Designer</div>
+                            <p class="card-text">Back-end Developer and ML Model Designer</p>
+                            <p class="card-text-hidden" >siddarthsiddu@gmail.com // 7892322456</p>
+
+                            </div>
                     </div>
                 </div>
             </div>
@@ -84,7 +163,53 @@
             <span>&copy; 2023 GenAI. All Rights Reserved.</span>
         </div>
     </footer>
+    <script>
+        const sentences = [
+         
+    "AI is changing the world.",
+    "Leveraging GPT can enhance creativity.",
+    "GPT-like AI can generate human-like text.",
+    "The potential of AI is immense."
+  ];
 
+  let currentSentenceIndex = 0;
+  let currentCharacterIndex = 0;
+  let typingSpeed = 100; // Adjust the typing speed here (in milliseconds)
+
+  function typeNextCharacter() {
+    const sentence = sentences[currentSentenceIndex];
+    const typingText = sentence.slice(0, currentCharacterIndex + 1);
+    document.getElementById('typing-text').textContent = typingText;
+
+    if (currentCharacterIndex < sentence.length) {
+      currentCharacterIndex++;
+      setTimeout(typeNextCharacter, typingSpeed);
+    } else {
+      setTimeout(eraseSentence, 1500); // Adjust the delay before erasing the sentence
+    }
+  }
+
+  function eraseSentence() {
+    const sentence = sentences[currentSentenceIndex];
+    const erasingText = sentence.slice(0, currentCharacterIndex);
+    document.getElementById('typing-text').textContent = erasingText;
+   
+  
+
+    if (currentCharacterIndex > 0) {
+      currentCharacterIndex--;
+      setTimeout(eraseSentence, typingSpeed / 2); // Adjust the erasing speed
+    } else {
+        document.getElementById('typing-text').textContent += '';
+        
+      
+      currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+      setTimeout(typeNextCharacter, 500); // Adjust the delay before typing the next sentence
+    }
+  }
+
+  typeNextCharacter();
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
