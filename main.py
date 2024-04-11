@@ -65,9 +65,6 @@ def logout():
 def aboutus():
     return render_template('about_us.html')
 
-@app.route('/about_us1')
-def aboutus1():
-    return render_template('about_us1.html')
 
 
 @app.route('/chatbot')
