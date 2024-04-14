@@ -6,8 +6,8 @@ app.secret_key = os.urandom(24)
 
 # Sample user database
 users = {
-    'rak@example.com': {'username': 'raki', 'password': '1235'},
-    'sid@example.com': {'username': 'sidd', 'password': '6541'}
+    'rak@example.com': {'username': 'Rakesh HR', 'password': '1235'},
+    'sid@example.com': {'username': 'Siddartha R', 'password': '6541'}
 }
 
 # Landing page route
