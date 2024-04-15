@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import os
 
+from openai import OpenAI
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -65,13 +67,37 @@ def logout():
 def aboutus():
     return render_template('about_us.html')
 
-
+client = OpenAI(api_key='')
 
 @app.route('/chatbot')
-def chat_bot():
-    if 'username' in session:
-        return render_template('chatbot.html', username=session['username'])
-    return redirect(url_for('login'))
+def chatbot():
+    if 'username' not in session:
+        flash('You must be logged in to view the chatbot.')
+        return redirect(url_for('login'))
+    
+    return render_template('chatbot.html', username=session['username'])
+     
+
+@app.route('/chat_with_bot', methods=['POST'])
+def chat_with_bot():
+    user_message = request.json['message']
+
+    response = client.chat.completions.create(
+        
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "You are a helpful law and legal assistant ."},
+        {"role": "user", "content": user_message}
+        ]
+    )
+
+    
+    ai_reply = response.choices[0].message.content
+
+
+    return jsonify({'message': ai_reply})
+
+
 
 @app.route('/image_gen')
 def imagegen():
@@ -80,15 +106,25 @@ def imagegen():
     return redirect(url_for('login'))
 
 
+
+
+@app.route('/ai_caption_voice')
+def ai_caption_voice():
+    if 'username' in session:
+        return render_template('ai_bytes.html', username=session['username'])
+    return redirect(url_for('login'))
+    
+
 @app.route('/audio_trans')
-def audio_gen():
-    return render_template('audio_gen.html')
+def audio_trans():
+    if 'username' in session:
+        return render_template('audio_service_index.html', username=session['username'])
 
-
-
-@app.route('/voice_audio')
-def ai_voice():
-    return render_template('voice_aud.html')
+    return redirect(url_for('login'))
+    
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
