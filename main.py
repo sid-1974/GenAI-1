@@ -60,7 +60,7 @@ def signup():
 @app.route('/logout')
 def logout():
     session.pop('username', None)
-    return redirect(url_for('home'))
+    return redirect(url_for('landing_page'))
 
 
 @app.route('/about_us')
