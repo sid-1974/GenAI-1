@@ -206,6 +206,17 @@ nav{
   
   
 }
+.testimonial-slide video{
+    width: 14rem;
+    height: 14rem;
+    object-fit: cover;
+    border-radius:14px;
+    padding: 2px;
+    border: 2px solid #333;
+    transition: box-shadow 0.3s ease;
+  
+  
+}
 .testimonial-slide-headings{
     margin-left: 15%;
 }
