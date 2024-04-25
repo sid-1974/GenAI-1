@@ -5,12 +5,15 @@ from openai import OpenAI
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+print(app.secret_key)
 
 # Sample user database
 users = {
-    'rak@example.com': {'username': 'Rakesh HR', 'password': '1235'},
+    'rak@genai.com': {'username': 'Rakesh HR', 'password': '1235'},
     'sid@example.com': {'username': 'Siddartha R', 'password': '6541'}
 }
+
+
 
 # Landing page route
 @app.route('/')
@@ -19,11 +22,15 @@ def landing_page():
 
 
 
+
+
 @app.route('/home')
 def home():
     if 'username' in session:
         return render_template('home.html', username=session['username'])
     return redirect(url_for('login'))
+
+
 
 
 
@@ -37,6 +44,8 @@ def login():
             return redirect(url_for('home'))
         flash('Invalid email or password', 'error')
     return render_template('login.html')
+
+
 
 
 
@@ -57,17 +66,26 @@ def signup():
 
 
 
+
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('landing_page'))
 
 
+
+
+
 @app.route('/about_us')
 def aboutus():
     return render_template('about_us.html')
 
+
+
 client = OpenAI(api_key='')
+
+
 
 @app.route('/chatbot')
 def chatbot():
@@ -77,6 +95,8 @@ def chatbot():
     
     return render_template('chatbot.html', username=session['username'])
      
+
+
 
 @app.route('/chat_with_bot', methods=['POST'])
 def chat_with_bot():
@@ -98,14 +118,11 @@ def chat_with_bot():
     return jsonify({'message': ai_reply})
 
 
-
 @app.route('/image_gen')
 def imagegen():
     if 'username' in session:
         return render_template('image_generation.html', username=session['username'])
     return redirect(url_for('login'))
-
-
 
 
 @app.route('/ai_caption_voice')
@@ -121,10 +138,54 @@ def audio_trans():
         return render_template('audio_service_index.html', username=session['username'])
 
     return redirect(url_for('login'))
+
+
+
+
+
+
+#info pages
+
+
+@app.route('/chat_assistance_info')
+def chat_assistance_info():
+    if 'username' not in session:
+        flash('You must be logged in to view the page.')
+        return redirect(url_for('login'))
+    return render_template('chat_assistance_info.html', username=session['username'])
+
+@app.route('/image_gen_info')
+def image_gen_info():
+    if 'username' not in session:
+        flash('You must be logged in to view the  page.')
+        return redirect(url_for('login'))
+    return render_template('image_gen_info.html')
+    
+@app.route('/audio_transcript_info')
+def audio_transcript_info():
+    if 'username' not in session:
+        flash('You must be logged in to view the page.')
+        return redirect(url_for('login'))
+    return render_template('audio_transcript_info.html')
+    
+@app.route('/ai_voice_info')
+def ai_voice_info():
+    if 'username' not in session:
+        flash('You must be logged in to view the  page.')
+        return redirect(url_for('login'))
+    return render_template('ai_voice_info.html')
+
     
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
